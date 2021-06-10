@@ -1,0 +1,9 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "project dependencies",
+  "main": "index.js",
+  "repository": "https://github.com/MatMatias/blockchain-js",
+  "author": "SamuraX",
+  "license": "MIT"
+}
