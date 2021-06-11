@@ -16,6 +16,7 @@ class Block {
   calculateHash() {
     return SHA256(this.index + this.parentHash + this.timestamp + this.nonce + JSON.stringify(this.data)).toString();
   }
+
 }
 
 module.exports = Block;
