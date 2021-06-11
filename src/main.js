@@ -11,3 +11,5 @@ blockchain.createGenesisBlock();
 let newBlock = new Block(1, 1, 'Second Block');
 blockchain.addBlock(newBlock);
 
+blockchain.printBlockchain();
+
