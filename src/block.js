@@ -1,11 +1,11 @@
 const SHA256 = require('crypto-js/sha256');
 
 class Block {
-  constructor(index, timestamp, parentHash = '', nonce, data) {
+  constructor(index, nonce, data) {
     // HEADER
     this.index = index;
-    this.timestamp = timestamp;
-    this.parentHash = parentHash;
+    this.timestamp = Date.now();
+    this.parentHash = null;
     this.nonce = nonce;
     // BODY
     this.data = data;
@@ -16,7 +16,7 @@ class Block {
   calculateHash() {
     return SHA256(this.index + this.parentHash + this.timestamp + this.nonce + JSON.stringify(this.data)).toString();
   }
-
+  /* UNUSED UNTIL THERE IS A BETTER SOLUTION TO PRINT ALL BLOCKS OF THE BLOCKCHAIN
   // Return itself if hash is matched
   verifyBlock(hash) {
     if(this.hash == hash) {
@@ -24,6 +24,7 @@ class Block {
     }
     return null;
   }
+  */
 }
 
 module.exports = Block;
