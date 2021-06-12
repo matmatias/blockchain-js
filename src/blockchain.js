@@ -2,12 +2,13 @@ const Block = require("./block");
 
 class Blockchain {
   // Initialize an empty blockchain
-  constructor() {
+  constructor(difficulty) {
     this.chain = [];
+    this.difficulty = difficulty;
   }
   // Creates the first block
   createGenesisBlock() {
-    this.chain.push(new Block(0, 0, "Genesis Block"));
+    this.chain.push(new Block("Genesis Block"));
   }
   // Gets the last block
   getLatestBlock() {
@@ -19,7 +20,7 @@ class Blockchain {
   // Add a new block to the blockchain pushing it to the array
   addBlock(newBlock) {
     newBlock.parentHash = this.getLatestBlock().hash;
-    newBlock.hash = newBlock.calculateHash();
+    newBlock.mineBlock(this.difficulty);
     this.chain.push(newBlock);
   }
   // Prints all blocks of the blockchain. Does not modify anything about the blockchain

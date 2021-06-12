@@ -2,22 +2,27 @@ const Block = require('./block');
 const Blockchain = require('./blockchain');
 
 // Creates an empty blockchain
-let blockchain = new Blockchain();
-blockchain.isChainValid();
+let blockchain = new Blockchain(difficulty = 3);
+
 
 // Creates the genesis block
 blockchain.createGenesisBlock();
 
 // Creates the second block and adds it to the blockchain
-let newBlock = new Block(1, 1, 'Second Block');
+let newBlock = new Block('Block 1');
+// Mining block 1
+console.log('Mining block 1...');
+blockchain.addBlock(newBlock);
+
+newBlock = new Block('Block 2');
+// Mining block 2
+console.log('Mining block 2...');
+blockchain.addBlock(newBlock);
+
+blockchain.difficulty = 6;
+newBlock = new Block('Block 3');
+// Mining block 3
+console.log('Mining block 3...')
 blockchain.addBlock(newBlock);
 
 blockchain.printBlockchain();
-blockchain.isChainValid();
-
-// Testing the blockchain validity
-blockchain.chain[0].data = 'Much money';
-blockchain.chain[0].hash = blockchain.chain[0].calculateHash();
-blockchain.isChainValid();
-console.log(blockchain);
-
