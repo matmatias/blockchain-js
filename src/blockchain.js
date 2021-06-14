@@ -1,16 +1,17 @@
 const Block = require("./block");
 
 class Blockchain {
-  // Initialize an empty blockchain
+  // Initialize an empty blockchain, must return an empty blockchain (array)
   constructor(difficulty) {
     this.chain = [];
     this.difficulty = difficulty;
   }
-  // Creates the first block
+  // Creates the first block, must return the genesis block with null parentHash
   createGenesisBlock() {
     this.chain.push(new Block("Genesis Block"));
+    this.chain[0].hash = this.chain[0].calculateHash();
   }
-  // Gets the last block
+  // Gets the last block, must return the latest block, if blockchain is empty, throws an error
   getLatestBlock() {
     if(this.chain.length == 0) {
       throw "Blockchain does not have any blocks";

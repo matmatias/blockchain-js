@@ -7,7 +7,6 @@ let blockchain = new Blockchain(difficulty = 3);
 
 // Creates the genesis block
 blockchain.createGenesisBlock();
-
 // Creates the second block and adds it to the blockchain
 let newBlock = new Block('Block 1');
 // Mining block 1
@@ -19,7 +18,7 @@ newBlock = new Block('Block 2');
 console.log('Mining block 2...');
 blockchain.addBlock(newBlock);
 
-blockchain.difficulty = 6;
+blockchain.difficulty = 3;
 newBlock = new Block('Block 3');
 // Mining block 3
 console.log('Mining block 3...')
