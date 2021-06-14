@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "project dependencies",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "repository": "https://github.com/MatMatias/blockchain-js",
   "author": "SamuraX",
   "license": "MIT",
   "devDependencies": {
-    "crypto-js": "^4.0.0"
+    "chai": "^4.3.4",
+    "crypto-js": "^4.0.0",
+    "mocha": "^9.0.0"
   },
   "dependencies": {
-    "chai": "^4.3.4",
     "jest": "^27.0.4"
   }
 }
