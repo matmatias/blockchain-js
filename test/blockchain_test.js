@@ -25,4 +25,11 @@ describe('Testes', function(){
         blockchain1.addBlock(newBlock);
         expect(blockchain1.getLatestBlock().data).to.be.equal("Here I am");
     });
+
+    it('Empty blockchain must return an error when trying to get latest block', function () {
+        let blockchainTest = new Blockchain(difficulty = 3);
+        expect(function(){
+            blockchainTest.getLatestBlock();
+        }).to.throw("Blockchain does not have any blocks");
+    });
 });
