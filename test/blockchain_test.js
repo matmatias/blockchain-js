@@ -15,5 +15,14 @@ describe('Testes', function(){
         expect(blockchain1.chain[0].parentHash).to.be.equal(" ");
     });
 
-
+    it('Blockchain must return the last block', function(){
+        let blockchain1 = new Blockchain(difficulty = 3);
+        blockchain1.createGenesisBlock();
+        let newBlock = new Block('Block 1');
+        blockchain1.addBlock(newBlock);
+        expect(blockchain1.getLatestBlock().data).to.be.equal("Block 1");
+        newBlock = new Block('Here I am');
+        blockchain1.addBlock(newBlock);
+        expect(blockchain1.getLatestBlock().data).to.be.equal("Here I am");
+    });
 });
