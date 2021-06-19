@@ -1,4 +1,3 @@
-const assert = require('chai').assert;
 const expect = require('chai').expect;
 const Block = require('../src/block');
 const Blockchain = require('../src/blockchain');

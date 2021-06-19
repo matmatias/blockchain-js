@@ -9,6 +9,7 @@ class Block {
     // BODY
     this.data = data;
     this.hash = '';
+    
   }
 
   // Calculates the hash of the current block, must return a valid SHA256 hash

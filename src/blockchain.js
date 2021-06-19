@@ -8,8 +8,9 @@ class Blockchain {
   }
   // Creates the first block, must return the genesis block with null parentHash
   createGenesisBlock() {
-    this.chain.push(new Block("Genesis Block"));
-    this.chain[0].hash = this.chain[0].calculateHash();
+    let genesisBlock = new Block("Genesis Block");
+    genesisBlock.mineBlock(this.difficulty);
+    this.chain.push(genesisBlock);
   }
   // Gets the last block, must return the latest block, if blockchain is empty, throws an error
   getLatestBlock() {
