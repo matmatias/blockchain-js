@@ -1,4 +1,5 @@
-const Block = require("./block");
+// const Block = require("./block");
+import Block from './block.js';
 
 class Blockchain {
   // Initialize an empty blockchain, must return an empty blockchain (array)
@@ -59,4 +60,5 @@ class Blockchain {
   }
 }
 
-module.exports = Blockchain;
+// module.exports = Blockchain;
+export default Blockchain;

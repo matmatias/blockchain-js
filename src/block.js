@@ -1,4 +1,7 @@
-const SHA256 = require('crypto-js/sha256');
+// const SHA256 = require('crypto-js/sha256');
+// import {SHA256} from 'crypto-js';
+// import sha256 from 'crypto-js/sha256';
+import CryptoES from 'crypto-es';
 
 class Block {
   constructor(data) {
@@ -9,12 +12,11 @@ class Block {
     // BODY
     this.data = data;
     this.hash = '';
-    
   }
 
   // Calculates the hash of the current block, must return a valid SHA256 hash
   calculateHash() {
-    return SHA256(this.parentHash + this.timestamp + this.nonce + JSON.stringify(this.data)).toString();
+    return CryptoES.SHA256(this.parentHash + this.timestamp + this.nonce + JSON.stringify(this.data)).toString();
   }
 
   // Mines the block hash, must return a valid SHA256 hash, replacing the inicial difficulty letters with 0
@@ -27,6 +29,17 @@ class Block {
     console.log('Block mined: ' + this.hash + ' Nonce: ' + this.nonce);
   }
 
+  // Returns all block info
+  getBlockInfo() {
+    return `HEADER\n
+    timestamp => ${this.timestamp}\n
+    parentHash => ${this.parentHash}\n
+    nonce => ${this.nonce}\n
+    data => ${this.data}\n
+    hash => ${this.hash}`;
+  }
+
 }
 
-module.exports = Block;
+// module.exports = Block;
+export default Block;
