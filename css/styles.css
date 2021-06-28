@@ -78,3 +78,18 @@ body {
 #information-messages{
   padding-left: 20px;
 }
+
+.block-data-insert{
+  display: none;
+  margin: 10px;
+  outline: none;
+}
+
+.input-data{
+  display: flex;
+  align-items: center;
+}
+
+.insert-button{
+  display: none;
+}

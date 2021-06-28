@@ -8,8 +8,8 @@ class Blockchain {
     this.difficulty = difficulty;
   }
   // Creates the first block, must return the genesis block with null parentHash
-  createGenesisBlock() {
-    let genesisBlock = new Block("Genesis Block");
+  createGenesisBlock(Blockdata) {
+    let genesisBlock = new Block(Blockdata);
     genesisBlock.mineBlock(this.difficulty);
     this.chain.push(genesisBlock);
   }
