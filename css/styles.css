@@ -50,19 +50,22 @@ body {
 #blockchain-section {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 50px;
   color: white;
-  background: darkgreen;
+  background: #7F7F7F;
   margin: 20px;
-  height: 300px;
 }
 
 .blockchain-block {
   border: black;
   border-style: solid;
-  background-color: blue;
+  background-color: #FBF37C;
+  color: black;
   height: 100px;
   width: 100px;
+  margin: 5px;
+  overflow-y: auto;
 }
 
 .disabledButton{
@@ -72,7 +75,7 @@ body {
   text-decoration: none;
   border-radius: 3px;
   border-style: none;
-  background-color:#8c7373;
+  background-color:#7F7F7F;
 }
 
 #information-messages{
