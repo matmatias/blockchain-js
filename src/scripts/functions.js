@@ -11,8 +11,10 @@ let addBlockButton = document.getElementById('add-block-button');
 let infoMessage = document.getElementById("information-messages");
 //Text area to input data to Blockchain
 let inputDataArea = document.getElementById("block-data-insert");
-//button to send data to store
+//button to send data to store genesis block
 let inputdatabutton = document.getElementById("insert-button");
+//button to send data to store general blocks
+let inputdatablockbutton = document.getElementById("insert-block-button");
 
 let blockchain = null;
 let counter = 1;
@@ -30,12 +32,18 @@ function intializeBlockchain() {
   console.log(blockchain.chain[0]);
 }
 
-function addDataToBlock(){
-  infoMessage.innerHTML = "Input the data for the genesis block beside:";
+function addDataToGenesisBlock(){
   inputDataArea.style.display = "block";
   inputdatabutton.style.display = "block";
-  inputdatabutton.addEventListener('click', () => addGenesisBlock(inputDataArea.value));
+  infoMessage.innerHTML = "Input the data for the genesis block beside:";
 }
+
+function addDataToBlock(){
+  inputDataArea.style.display = "block";
+  inputdatablockbutton.style.display = "block";
+  infoMessage.innerHTML = "Input the data for the block beside:";
+}
+
 // Adds the genesis block on the blockchain, appends it to a div with class "blockchain-block" and append this div to the section "blockchain-section"
 function addGenesisBlock(Blockdata) {
   // Creates the genesis block and append it to the blockhain
@@ -45,7 +53,7 @@ function addGenesisBlock(Blockdata) {
   // Adds this div to the class "blockchain-block"
   genBlockDiv.classList.add("blockchain-block");
   // Gets the block info
-  let blockInfo = blockchain.chain[0].getBlockInfo();
+  let blockInfo = blockchain.chain[0].getData();
   // Inserts the block info to the div created
   genBlockDiv.innerHTML = blockInfo;
   // Adds the div to the section "blockchain-section"
@@ -65,18 +73,24 @@ function addGenesisBlock(Blockdata) {
   console.log(blockchain);
 }
 
-function addBlock() {
+function addBlock(Blockdata) {
   // Creates a new block and adds it to the blockchain
   counter++;
-  let newBlock = new Block(`Block: ${counter}`);
+  let newBlock = new Block(Blockdata);
   blockchain.addBlock(newBlock);
   // Creates a new div with the blockchain-block class and adds it to the section "blockchain-section"
   let newBlockDiv = document.createElement("div");
   newBlockDiv.classList.add("blockchain-block");
-  newBlockDiv.innerHTML = blockchain.getLatestBlock().getBlockInfo();
+  newBlockDiv.innerHTML = blockchain.getLatestBlock().getData();
   document.getElementById("blockchain-section").appendChild(newBlockDiv);
+  inputDataArea.value = "";
+  inputDataArea.style.display = "none";
+  inputdatablockbutton.style.display = "none";
+  infoMessage.innerHTML = "The block was successfully created!";
 }
 
 initializeBlockchainButton.addEventListener('click', () => intializeBlockchain());
-addGenesisBlockButton.addEventListener('click', () => addDataToBlock());
-addBlockButton.addEventListener('click', () => addBlock());
+addGenesisBlockButton.addEventListener('click', () => addDataToGenesisBlock());
+addBlockButton.addEventListener('click', () => addDataToBlock());
+inputdatabutton.addEventListener('click', () => addGenesisBlock(inputDataArea.value));
+inputdatablockbutton.addEventListener('click', () => addBlock(inputDataArea.value));

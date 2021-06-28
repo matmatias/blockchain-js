@@ -39,6 +39,10 @@ class Block {
     hash => ${this.hash}`;
   }
 
+  getData(){
+    return this.data;
+  }
+
 }
 
 // module.exports = Block;
