@@ -53,14 +53,14 @@ body {
   flex-wrap: wrap;
   gap: 50px;
   color: white;
-  background: #7F7F7F;
+  background: #9CA4DE;
   margin: 20px;
 }
 
 .blockchain-block {
   border: black;
-  border-style: solid;
-  background-color: #FBF37C;
+  border-style: double;
+  background-color: #D29FF5;
   color: black;
   height: 100px;
   width: 100px;
