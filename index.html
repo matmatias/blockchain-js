@@ -5,21 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
-  <title>blockchain-js</title>
+  <title>Blockchain Viewer</title>
 </head>
 <body>
   <div class="navbar">
     <div class="navbar-col1">
-      <a href="#">Blockchain-JS</a>
+      <a href="#">Blockchain Viewer</a>
     </div>
 
     <div class="navbar-col2">
       <button class="navbar-button" id="initialize-blockchain-button">Initialize Blockchain</button>
-      <button class="navbar-button" id="add-genesis-block-button">Add  Genesis Block</button>
-      <button class="navbar-button" id="add-block-button">Add Block</button>
+      <button class="disabledButton" id="add-genesis-block-button" disabled>Add Genesis Block</button>
+      <button class="disabledButton" id="add-block-button" disabled>Add Block</button>
     </div>
     
   </div>
+  <p id="information-messages"></p>
+  
   <section id="blockchain-section">
     
   </section>

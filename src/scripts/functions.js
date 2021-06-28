@@ -8,12 +8,21 @@ let addGenesisBlockButton = document.getElementById('add-genesis-block-button');
 // Add Block Button
 let addBlockButton = document.getElementById('add-block-button');
 
+let infoMessage = document.getElementById("information-messages");
+
 let blockchain = null;
 let counter = 1;
 // Initializes an empty blockchain
 function intializeBlockchain() {
   blockchain = new Blockchain(3);
-  alert('Blockchain Initialized');
+  infoMessage.innerHTML = "Blockchain initialized!";
+  //unable button to start the blockchain and enable the add genesis block button
+  initializeBlockchainButton.disabled = true;
+  initializeBlockchainButton.classList.add("disabledButton");
+  initializeBlockchainButton.classList.remove("navbar-button");
+  addGenesisBlockButton.classList.remove("disabledButton");
+  addGenesisBlockButton.classList.add("navbar-button");
+  addGenesisBlockButton.disabled = false;
   console.log(blockchain.chain[0]);
 }
 // Adds the genesis block on the blockchain, appends it to a div with class "blockchain-block" and append this div to the section "blockchain-section"
@@ -30,6 +39,15 @@ function addGenesisBlock() {
   genBlockDiv.innerHTML = blockInfo;
   // Adds the div to the section "blockchain-section"
   document.getElementById("blockchain-section").appendChild(genBlockDiv);
+
+  //unable button to create genesis block and enable the add block button
+  addGenesisBlockButton.disabled = true;
+  addGenesisBlockButton.classList.add("disabledButton");
+  addGenesisBlockButton.classList.remove("navbar-button");
+  addBlockButton.classList.remove("disabledButton");
+  addBlockButton.classList.add("navbar-button");
+  addBlockButton.disabled = false;
+  infoMessage.innerHTML = "Genesis block created!";
   console.log(blockchain);
 }
 
