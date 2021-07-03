@@ -1,3 +1,4 @@
+
 import Block from '../block.js';
 import Blockchain from '../blockchain.js';
 

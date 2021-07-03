@@ -5,10 +5,13 @@ const webpack = require("webpack")
 //const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 // const CopyPlugin = require("copy-webpack-plugin")
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+
+
 const srcDir        = path.join(__dirname,"./src")
 const distDir       = path.join(__dirname,"./build") // pode usar a dist
-const entry         = path.join(srcDir, "scripts/functions.js" )
+const entry         = path.join(srcDir, "index.jsx" )
 const srcHtmlLayout = path.join(__dirname, "index.html")
+
 module.exports = {
   mode: process.env.NODE_ENV || "development",
   target: "web",
@@ -22,9 +25,6 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".json"],
     modules: [ "node_modules", srcDir ],
-    alias: {
-      "react-dom": "@hot-loader/react-dom"
-    }
   },
   plugins: [
     new HtmlWebpackPlugin({
