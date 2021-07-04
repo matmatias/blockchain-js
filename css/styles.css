@@ -1,0 +1,98 @@
+body {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  background: #181818;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background: #242325;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.navbar-col1 {
+  padding-left: 20px;
+  font-size: 30px;
+  color: white;
+}
+
+.navbar-col1 a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-col2 {
+  padding-right: 20px;
+  color: white;
+}
+
+.navbar-button {
+  display: inline-block;
+  background-color: rgb(70,70,70);
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  border-style: none;
+}
+
+.navbar-button:hover {
+  background-color: rgb(90,90,90);
+  cursor: pointer;
+}
+
+#blockchain-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+  color: white;
+  background: #9CA4DE;
+  margin: 20px;
+}
+
+.blockchain-block {
+  border: black;
+  border-style: double;
+  background-color: #D29FF5;
+  color: black;
+  height: 100px;
+  width: 100px;
+  margin: 5px;
+  overflow-y: auto;
+}
+
+.disabledButton{
+  display: inline-block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 3px;
+  border-style: none;
+  background-color:#7F7F7F;
+}
+
+#information-messages{
+  padding-left: 20px;
+}
+
+.block-data-insert{
+  display: none;
+  margin: 10px;
+  outline: none;
+}
+
+.input-data{
+  display: flex;
+  align-items: center;
+}
+
+.insert-button{
+  display: none;
+}
