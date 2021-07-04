@@ -11,7 +11,7 @@ const Navbar = ({initializeBlockchain}) => {
           <a href="#">Blockchain Viewer</a>
         </div>
         <div>
-          <p>Blockchain Initial Difficulty</p>
+          <h2>Blockchain Initial Difficulty</h2>
           <input
             type="number"
             value={blockchainDifficulty}

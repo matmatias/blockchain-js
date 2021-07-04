@@ -11,7 +11,11 @@ const BlockList = ({chain}) => {
             chain.map((block, idx) => {
               return (
                 <li key={idx}>
-                  {block.data.toString()}
+                  Data: {block.data.toString()}<br/>
+                  Parent Hash: {block.parentHash.toString()}<br/>
+                  Hash: {block.hash.toString()}<br/>
+                  Timestamp: {block.timestamp.toString()}<br/>
+                  Nonce: {block.nonce.toString()}<br/>
                 </li>
               )
             })
