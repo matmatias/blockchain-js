@@ -23,7 +23,7 @@ const App = (props) => {
           {
             blockchain.chain.length == 0 ?
             blockchain.createGenesisBlock(blockData) : blockchain.addBlock(newBlock);
-            setChain(blockchain.chain);
+            setChain([...blockchain.chain], newBlock);
           }
           console.log(chain);
         }}
