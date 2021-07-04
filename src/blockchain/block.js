@@ -1,13 +1,14 @@
 // const SHA256 = require('crypto-js/sha256');
 // import {SHA256} from 'crypto-js';
-// import sha256 from 'crypto-js/sha256';
+// const sha256 = require('crypto-js/sha256');
 import CryptoES from 'crypto-es';
+
 
 class Block {
   constructor(data) {
     // HEADER
     this.timestamp = Date.now();
-    this.parentHash = ' ';
+    this.parentHash = '';
     this.nonce = 0;
     // BODY
     this.data = data;

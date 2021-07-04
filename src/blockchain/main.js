@@ -1,3 +1,5 @@
+// import Block from './block';
+// import Blockchain from './blockchain';
 const Block = require('./block');
 const Blockchain = require('./blockchain');
 

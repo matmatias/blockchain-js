@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Navbar = (props) => {
+const Navbar = ({initializeBlockchain}) => {
+  const [blockchainDifficulty, setBlockchainDifficulty] = React.useState(0);
 
   return (
     <React.Fragment>
@@ -8,21 +10,32 @@ const Navbar = (props) => {
         <div>
           <a href="#">Blockchain Viewer</a>
         </div>
-
         <div>
-          <button>
+          <p>Blockchain Initial Difficulty</p>
+          <input
+            type="number"
+            value={blockchainDifficulty}
+            onChange={(evt) => {
+              setBlockchainDifficulty(evt.target.value);
+            }}
+          >
+          </input>
+          <button
+            onClick={() => {
+              initializeBlockchain(parseInt(blockchainDifficulty));
+            }}
+          >
             Initialize Blockchain
-          </button>
-          <button>
-            Add Genesis Block
-          </button>
-          <button>
-            Add Block
           </button>
         </div>
       </div>
     </React.Fragment>
   )
 }
+
+Navbar.propTypes = {
+  initializeBlockchain: PropTypes.func,
+  blockchainDifficulty: PropTypes.number
+};
 
 export default Navbar;

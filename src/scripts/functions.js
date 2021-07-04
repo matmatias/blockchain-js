@@ -1,6 +1,6 @@
 
 import Block from '../block.js';
-import Blockchain from '../blockchain.js';
+import Blockchain from '../blockchain/blockchain.js';
 
 // Initialize Blockchain Button
 let initializeBlockchainButton = document.getElementById('initialize-blockchain-button');
