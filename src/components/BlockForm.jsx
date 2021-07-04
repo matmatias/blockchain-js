@@ -20,7 +20,7 @@ const BlockForm = ({addBlock}) => {
 
         <button
           onClick={() => {
-            addBlock({data: data});
+            addBlock(data);
           }}
         >
           ADD NEW BLOCK

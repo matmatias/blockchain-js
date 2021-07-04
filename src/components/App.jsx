@@ -13,6 +13,7 @@ const App = (props) => {
       <Navbar
         initializeBlockchain={(blockchainDifficulty) => {
           setBlockchain(new Blockchain(blockchainDifficulty));
+          alert("Blockchain Initialized")
           console.log(blockchain);
         }}
       />
@@ -27,9 +28,11 @@ const App = (props) => {
           console.log(chain);
         }}
       />
+      
       <BlockList
         chain={chain}
       />
+
     </React.Fragment>
   )
 };
