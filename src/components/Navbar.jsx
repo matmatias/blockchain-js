@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Div, Link, Button } from '../styles/NavbarStyle';
+import { Container, Div, Link, Button, Input, H3 } from '../styles/NavbarStyle';
 const Navbar = ({initializeBlockchain}) => {
   const [blockchainDifficulty, setBlockchainDifficulty] = React.useState(0);
 
@@ -10,15 +10,15 @@ const Navbar = ({initializeBlockchain}) => {
         <Link href="#">Blockchain Viewer</Link>
 
         <Div>
-          <h3>Blockchain Initial Difficulty</h3>
-          <input
+          <H3>Blockchain Initial Difficulty</H3>
+          <Input
             type="number"
             value={blockchainDifficulty}
             onChange={(evt) => {
               setBlockchainDifficulty(evt.target.value);
             }}
           >
-          </input>
+          </Input>
           <Button
             onClick={() => {
               initializeBlockchain(parseInt(blockchainDifficulty));

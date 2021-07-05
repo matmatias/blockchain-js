@@ -19,6 +19,12 @@ const App = (props) => {
           console.log(blockchain);
         }}
       />
+
+            
+      <BlockList
+        chain={chain}
+      />
+
       <BlockForm
         addBlock={(blockData) => {
           const newBlock = new Block(blockData);
@@ -30,10 +36,7 @@ const App = (props) => {
           console.log(chain);
         }}
       />
-      
-      <BlockList
-        chain={chain}
-      />
+
 
     </React.Fragment>
   )

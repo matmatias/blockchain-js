@@ -15,9 +15,16 @@ export const Link = styled.a`
   color: white;
 `
 
+export const H3 = styled.h3`
+  padding-right: 5px;
+  padding-top: 6px;
+`
+
 export const Div = styled.div`
   padding-right: 20px;
   color: white;
+  display: flex;
+  flex-direction: row;
 `
 export const Button = styled.button`
   display: inline-block;
@@ -31,5 +38,9 @@ export const Button = styled.button`
     background-color: rgb(90,90,90);
     cursor: pointer;
   }
+`
+
+export const Input = styled.input`
+  padding: 8px;
 `
 
