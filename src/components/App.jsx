@@ -4,12 +4,14 @@ import Block from '../blockchain/block';
 import Navbar from './Navbar';
 import BlockForm from './BlockForm';
 import BlockList from './BlockList';
+import GlobalStyle from '../styles/GlobalStyles';
 
 const App = (props) => {
   const [blockchain, setBlockchain] = React.useState(null);
   const [chain, setChain] = React.useState([]);
   return (
     <React.Fragment>
+      <GlobalStyle />
       <Navbar
         initializeBlockchain={(blockchainDifficulty) => {
           setBlockchain(new Blockchain(blockchainDifficulty));

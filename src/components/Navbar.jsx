@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Container, Div, Link, Button } from '../styles/NavbarStyle';
 const Navbar = ({initializeBlockchain}) => {
   const [blockchainDifficulty, setBlockchainDifficulty] = React.useState(0);
 
   return (
     <React.Fragment>
-      <div>
-        <div>
-          <a href="#">Blockchain Viewer</a>
-        </div>
-        <div>
-          <h2>Blockchain Initial Difficulty</h2>
+      <Container>
+        <Link href="#">Blockchain Viewer</Link>
+
+        <Div>
+          <h3>Blockchain Initial Difficulty</h3>
           <input
             type="number"
             value={blockchainDifficulty}
@@ -20,15 +19,15 @@ const Navbar = ({initializeBlockchain}) => {
             }}
           >
           </input>
-          <button
+          <Button
             onClick={() => {
               initializeBlockchain(parseInt(blockchainDifficulty));
             }}
           >
             Initialize Blockchain
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Div>
+      </Container>
     </React.Fragment>
   )
 }
