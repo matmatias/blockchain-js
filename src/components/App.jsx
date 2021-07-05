@@ -4,7 +4,7 @@ import Block from '../blockchain/block';
 import Navbar from './Navbar';
 import BlockForm from './BlockForm';
 import BlockList from './BlockList';
-import GlobalStyle from '../styles/GlobalStyles';
+import { GlobalStyle, FlexContainer } from '../styles/GlobalStyles';
 
 const App = (props) => {
   const [blockchain, setBlockchain] = React.useState(null);
@@ -20,22 +20,23 @@ const App = (props) => {
         }}
       />
 
-            
-      <BlockList
-        chain={chain}
-      />
+      <FlexContainer>
+        <BlockList
+          chain={chain}
+        />
 
-      <BlockForm
-        addBlock={(blockData) => {
-          const newBlock = new Block(blockData);
-          {
-            blockchain.chain.length == 0 ?
-            blockchain.createGenesisBlock(blockData) : blockchain.addBlock(newBlock);
-            setChain([...blockchain.chain], newBlock);
-          }
-          console.log(chain);
-        }}
-      />
+        <BlockForm
+          addBlock={(blockData) => {
+            const newBlock = new Block(blockData);
+            {
+              blockchain.chain.length == 0 ?
+              blockchain.createGenesisBlock(blockData) : blockchain.addBlock  (newBlock);
+              setChain([...blockchain.chain], newBlock);
+            }
+            console.log(chain);
+          }}
+        />
+      </FlexContainer>
 
 
     </React.Fragment>
