@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container, Div, Button } from '../styles/BlockFormStyles';
 
 const BlockForm = ({addBlock}) => {
   
@@ -7,25 +8,27 @@ const BlockForm = ({addBlock}) => {
 
   return (
     <React.Fragment>
-      <div>
-        <h2>Data</h2>
-        <input
-          type="text"
-          value={data}
-          onChange={(evt) => {
-            setData(evt.target.value);
-          }}
-        >
-        </input>
+      <Container>
+        <Div>
+          <h2>Data</h2>
+          <input
+            type="text"
+            value={data}
+            onChange={(evt) => {
+              setData(evt.target.value);
+            }}
+          >
+          </input>
+        </Div>
 
-        <button
+        <Button
           onClick={() => {
             addBlock(data);
           }}
         >
           ADD NEW BLOCK
-        </button>
-      </div>
+        </Button>
+      </Container>
     </React.Fragment>
   )
 }
