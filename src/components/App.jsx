@@ -12,13 +12,7 @@ const App = (props) => {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Navbar
-        initializeBlockchain={(blockchainDifficulty) => {
-          setBlockchain(new Blockchain(blockchainDifficulty));
-          alert("Blockchain Initialized")
-          console.log(blockchain);
-        }}
-      />
+      <Navbar />
 
       <FlexContainer>
         <BlockList

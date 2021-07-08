@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Div, Link, Button, Input, H3 } from '../styles/NavbarStyle';
+import BlockchainDuck from '../ducks/BlockchainDuck';
+import { connect } from 'react-redux';
+
 const Navbar = ({initializeBlockchain}) => {
   const [blockchainDifficulty, setBlockchainDifficulty] = React.useState(0);
 
@@ -32,9 +35,18 @@ const Navbar = ({initializeBlockchain}) => {
   )
 }
 
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  initializeBlockchain: (difficulty) => dispatch(
+    BlockchainDuck.creators.initializeBlockchain(difficulty),
+    alert('Blockchain Initialized')
+  )
+});
+
 Navbar.propTypes = {
   initializeBlockchain: PropTypes.func,
   blockchainDifficulty: PropTypes.number
 };
 
-export default Navbar;
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
