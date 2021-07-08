@@ -15,21 +15,9 @@ const App = (props) => {
       <Navbar />
 
       <FlexContainer>
-        <BlockList
-          chain={chain}
-        />
+        <BlockList />
 
-        <BlockForm
-          addBlock={(blockData) => {
-            const newBlock = new Block(blockData);
-            {
-              blockchain.chain.length == 0 ?
-              blockchain.createGenesisBlock(blockData) : blockchain.addBlock(newBlock);
-              setChain([...blockchain.chain], newBlock);
-            }
-            console.log(chain);
-          }}
-        />
+        <BlockForm />
       </FlexContainer>
 
 

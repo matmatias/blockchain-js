@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Block from '../blockchain/block';
 import { Section, Ul, Li } from '../styles/BlockListStyles';
+import BlockchainDuck from '../ducks/BlockchainDuck';
+import { connect } from 'react-redux';
 
-const BlockList = ({chain}) => {
+const BlockList = ({ chain }) => {
   return (
     <React.Fragment>
       <Section>
@@ -28,6 +30,19 @@ const BlockList = ({chain}) => {
   )
 };
 
+const mapStateToProps = (store) => {
+  return {
+    blockchain: store.blockchain.blockchain,
+    chain: store.blockchain.chain
+  }
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  chain: () => dispatch(
+    BlockchainDuck.creators.chain(),
+  )
+});
+
 BlockList.propTypes = {
   chain: PropTypes.array,
   block: PropTypes.instanceOf(Block)
@@ -38,5 +53,5 @@ BlockList.defautProps = {
   block: null
 };
 
-export default BlockList
+export default connect(mapStateToProps, mapDispatchToProps)(BlockList);
 

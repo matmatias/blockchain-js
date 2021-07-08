@@ -5,7 +5,7 @@ import Block from '../blockchain/block';
 export default new Duck({
   namespace: 'blockchain',
   store: 'blockchain',
-  types: ['INITIALIZE_BLOCKCHAIN', 'CREATE_GENESIS_BLOCK', 'ADD_BLOCK'],
+  types: ['INITIALIZE_BLOCKCHAIN', 'ADD_BLOCK', 'CHAIN'],
   initialState: { blockchain: null, chain: [] },
 
   reducer: (state, action, duck) => {
@@ -15,25 +15,24 @@ export default new Duck({
         blockchain = new Blockchain(parseInt(action.difficulty));
         return {
           blockchain: blockchain,
-          chain: [...state.chain, blockchain.chain]
+          chain: [ ...state.chain, blockchain.chain ]
         };
-      case duck.types.CREATE_GENESIS_BLOCK:
-        blockchain = state.blockchain;
-        blockchain.createGenesisBlock(action.blockData);
-        return {
-          blockchain: blockchain,
-          chain: [ ...state.blockchain.chain, blockchain.chain]
-        };
-      /*
+
       case duck.types.ADD_BLOCK:
-        const newBlock = new Block(action.blockData);
         blockchain = state.blockchain;
-        blockchain.addBlock(newBlock);
+        const newBlock = new Block(action.blockData);
+        blockchain.chain.length == 0 ?
+          blockchain.createGenesisBlock(action.blockData) :
+          blockchain.addBlock(newBlock);
         return {
           blockchain: blockchain,
-          chain: [ ...state.blockchain.chain, blockchain.chain]
+          chain: [ ...state.blockchain.chain, blockchain.chain ]
         };
-      */
+
+      case duck.types.CHAIN:
+        return {
+          chain: state.chain
+        };
       default:
         return state;
     }
@@ -42,6 +41,12 @@ export default new Duck({
   creators: (duck) => ({
     initializeBlockchain: (difficulty) => ({
       type: duck.types.INITIALIZE_BLOCKCHAIN, difficulty
+    }),
+    addBlock: (blockData) => ({
+      type: duck.types.ADD_BLOCK, blockData
+    }),
+    chain: (chain) => ({
+      type: duck.types.CHAIN
     })
   })
 });
