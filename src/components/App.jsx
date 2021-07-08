@@ -7,8 +7,8 @@ import BlockList from './BlockList';
 import { GlobalStyle, FlexContainer } from '../styles/GlobalStyles';
 
 const App = (props) => {
-  const [blockchain, setBlockchain] = React.useState(null);
-  const [chain, setChain] = React.useState([]);
+  // const [blockchain, setBlockchain] = React.useState(null);
+  // const [chain, setChain] = React.useState([]);
   return (
     <React.Fragment>
       <GlobalStyle />

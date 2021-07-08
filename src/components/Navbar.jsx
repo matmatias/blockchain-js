@@ -35,7 +35,13 @@ const Navbar = ({initializeBlockchain}) => {
   )
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (store) => {
+  console.log(store.blockchain.blockchain);
+  return {
+    blockchain: store.blockchain.blockchain,
+    chain: store.blockchain.chain
+  }
+};
 
 const mapDispatchToProps = (dispatch) => ({
   initializeBlockchain: (difficulty) => dispatch(
