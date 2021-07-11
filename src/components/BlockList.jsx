@@ -1,11 +1,10 @@
+import Block from '../blockchain/block';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Block from '../blockchain/block';
 import { Section, Ul, Li } from '../styles/BlockListStyles';
-import BlockchainDuck from '../ducks/BlockchainDuck';
 import { connect } from 'react-redux';
 
-const BlockList = ({ chain }) => {
+const BlockList = ({chain}) => {
   return (
     <React.Fragment>
       <Section>
@@ -14,7 +13,7 @@ const BlockList = ({ chain }) => {
             chain.map((block, idx) => {
               return (
                 <Li key={idx}>
-                  <h1>{idx == 0 ? "GENESIS BLOCK" : `BLOCK #${idx}`}</h1>
+                  <h1>{idx == 0 ? 'GENESIS BLOCK' : `BLOCK #${idx}`}</h1>
                   Data: {block.data.toString()}<br/>
                   Parent Hash: {block.parentHash.toString()}<br/>
                   Hash: {block.hash.toString()}<br/>
@@ -30,28 +29,23 @@ const BlockList = ({ chain }) => {
   )
 };
 
-const mapStateToProps = (store) => {
-  return {
-    blockchain: store.blockchain.blockchain,
-    chain: store.blockchain.chain
-  }
-};
+const mapStateToProps = store => ({chain: store.blockchain.chain});
 
-const mapDispatchToProps = (dispatch) => ({
-  chain: () => dispatch(
-    BlockchainDuck.creators.chain(),
-  )
-});
+const mapDispatchToProps = dispatch => ({});
 
 BlockList.propTypes = {
   chain: PropTypes.array,
-  block: PropTypes.instanceOf(Block)
+  block: PropTypes.instanceOf(Block),
+  idx: PropTypes.number
 };
 
-BlockList.defautProps = {
+BlockList.defaultProps = {
   chain: [],
-  block: null
+  block: null,
+  idx: 0
 };
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlockList);
 

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const BlockForm = ({addBlock}) => {
   
-  const [blockData, setBlockData] = React.useState("");
+  const [blockData, setBlockData] = React.useState('');
 
   return (
     <React.Fragment>
@@ -15,7 +15,7 @@ const BlockForm = ({addBlock}) => {
           <h2>Data</h2>
           <input
             type="text"
-            value={data}
+            value={blockData}
             onChange={(evt) => {
               setBlockData(evt.target.value);
             }}
@@ -35,24 +35,23 @@ const BlockForm = ({addBlock}) => {
   )
 }
 
-const mapStateToProps = (store) => {
+
+const mapStateToProps = store => ({})
+
+
+const mapDispatchToProps = dispatch => {
   return {
-    blockchain: store.blockchain.blockchain,
-    chain: store.blockchain.chain
+    addBlock: blockData => dispatch(
+      BlockchainDuck.creators.addBlock(blockData)
+    )
   }
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addBlock: (blockData) => dispatch(
-    BlockchainDuck.creators.addBlock(blockData),
-  )
-});
-
 BlockForm.propTypes = {
   addBlock: PropTypes.func,
-  data: PropTypes.string
+  blockData: PropTypes.string
 };
 
-
+BlockForm.defaultProps = { blockData: '' }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlockForm);

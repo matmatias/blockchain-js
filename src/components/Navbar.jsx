@@ -35,24 +35,22 @@ const Navbar = ({initializeBlockchain}) => {
   )
 }
 
-const mapStateToProps = (store) => {
-  console.log(store.blockchain.blockchain);
+const mapStateToProps = store => ({});
+
+const mapDispatchToProps = dispatch => {
   return {
-    blockchain: store.blockchain.blockchain,
-    chain: store.blockchain.chain
+    initializeBlockchain: difficulty => dispatch(
+      BlockchainDuck.creators.initializeBlockchain(difficulty),
+      alert('Blockchain Initialized')
+    )
   }
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  initializeBlockchain: (difficulty) => dispatch(
-    BlockchainDuck.creators.initializeBlockchain(difficulty),
-    alert('Blockchain Initialized')
-  )
-});
 
 Navbar.propTypes = {
   initializeBlockchain: PropTypes.func,
   blockchainDifficulty: PropTypes.number
 };
+
+Navbar.defaultProps = { blockchainDifficulty: 0 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
