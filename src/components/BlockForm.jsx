@@ -1,38 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container, Div, Button } from '../styles/BlockFormStyles';
+import BlockchainDuck from '../ducks/BlockchainDuck';
+import { connect } from 'react-redux';
 
 const BlockForm = ({addBlock}) => {
   
-  const [data, setData] = React.useState("");
+  const [blockData, setBlockData] = React.useState('');
 
   return (
     <React.Fragment>
-      <div>
-        <h2>Data</h2>
-        <input
-          type="text"
-          value={data}
-          onChange={(evt) => {
-            setData(evt.target.value);
-          }}
-        >
-        </input>
+      <Container>
+        <Div>
+          <h2>Data</h2>
+          <input
+            type="text"
+            value={blockData}
+            onChange={(evt) => {
+              setBlockData(evt.target.value);
+            }}
+          >
+          </input>
+        </Div>
 
-        <button
+        <Button
           onClick={() => {
-            addBlock(data);
+            addBlock(blockData);
           }}
         >
           ADD NEW BLOCK
-        </button>
-      </div>
+        </Button>
+      </Container>
     </React.Fragment>
   )
 }
 
-BlockForm.propTypes = {
-  addBlock: PropTypes.func,
-  data: PropTypes.string
+
+const mapStateToProps = store => ({})
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addBlock: blockData => dispatch(
+      BlockchainDuck.creators.addBlock(blockData)
+    )
+  }
 };
 
-export default BlockForm;
+BlockForm.propTypes = {
+  addBlock: PropTypes.func,
+  blockData: PropTypes.string
+};
+
+BlockForm.defaultProps = { blockData: '' }
+
+export default connect(mapStateToProps, mapDispatchToProps)(BlockForm);
