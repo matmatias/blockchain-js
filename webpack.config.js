@@ -1,11 +1,5 @@
 const path = require("path")
-const webpack = require("webpack")
- const HtmlWebpackPlugin = require("html-webpack-plugin")
-//const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-//const { CleanWebpackPlugin } = require("clean-webpack-plugin")
-// const CopyPlugin = require("copy-webpack-plugin")
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const srcDir        = path.join(__dirname,"./src")
 const distDir       = path.join(__dirname,"./build") // pode usar a dist
@@ -16,7 +10,7 @@ module.exports = {
   mode: process.env.NODE_ENV || "development",
   target: "web",
   entry: {
-    main: entry // ./src/index.js
+    main: entry
   },
   output: {
     filename: "bundle.js",
@@ -28,22 +22,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: srcHtmlLayout,
-      chunksSortMode: "none"
+      template: srcHtmlLayout
     }),
-/*
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new BundleAnalyzerPlugin(),
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "[name].css"
-    }),
-    new CopyPlugin([
-      { from: "./public/", to: "assets/" },
-    ])
-*/
   ],
   module: {
     rules: [
