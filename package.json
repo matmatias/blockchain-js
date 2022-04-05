@@ -1,11 +1,11 @@
 {
-  "name": "blockchain",
+  "name": "blockchain-js",
   "version": "1.0.0",
   "description": "project dependencies",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "dev": "webpack serve --open --hot --inline",
+    "start": "webpack serve --open --hot --inline",
     "build": "webpack --mode=production"
   },
   "repository": "https://github.com/MatMatias/blockchain-js",
@@ -13,9 +13,8 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.14.7",
-    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-react": "^7.16.7",
     "babel": "^6.23.0",
     "babel-loader": "^8.2.2",
     "chai": "^4.3.4",
@@ -25,7 +24,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "core-js": "^3.15.2",
     "crypto-es": "^1.2.7",
     "extensible-duck": "^1.6.0",
     "prop-types": "^15.7.2",
